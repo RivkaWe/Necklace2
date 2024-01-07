@@ -1,8 +1,8 @@
 // import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import { useParams, Link, useNavigate } from "react-router-dom";
-
+import { useResizeObserver } from "@wojtekmaj/react-hooks";
 import { Button } from "react-bootstrap";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -13,11 +13,27 @@ export default function EachDiamond() {
   const [pageNumber, setPageNumber] = useState(1); // start on first page
   const [loading, setLoading] = useState(true);
   const [pageWidth, setPageWidth] = useState(0);
+  const [containerWidth, setContainerWidth] = useState();
+  const [containerRef, setContainerRef] = useState(null);
   const { id } = useParams();
 
  function clickHandler(){
   navigate(-1)
  }
+
+ const resizeObserverOptions = {};
+
+ const maxWidth = 800;
+ 
+ const onResize = useCallback((entries) => {
+  const [entry] = entries;
+
+  if (entry) {
+    setContainerWidth(entry.contentRect.width);
+  }
+}, []);
+
+useResizeObserver(containerRef, resizeObserverOptions, onResize);
   function onDocumentLoadSuccess({
     numPages: nextNumPages,
   }) {
@@ -101,7 +117,10 @@ Go Back To Necklace
               renderTextLayer={false}
               onLoadSuccess={onPageLoadSuccess}
               onRenderError={() => setLoading(false)}
-              width={Math.max(pageWidth * 0.8, 390)}
+              // width={Math.max(pageWidth * 0.8, 390)}
+              width={
+                containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth
+              }
             />
           </Document>
         </div>
