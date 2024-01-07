@@ -85,7 +85,7 @@ export default function EachDiamond() {
  const navigate=useNavigate()
   function onDocumentLoadSuccess({
     numPages: nextNumPages,
-  }: PDFDocumentProxy): void {
+  }) {
     setNumPages(nextNumPages);
   }
 
@@ -114,7 +114,7 @@ export default function EachDiamond() {
         </div> */}
         <div className="cert-container" ref={setContainerRef}>
           <Document
-            file={`http://www.hasenfeld-stein.com/images/certificates/${id}.pdf`}
+            file={`https://www.hasenfeld-stein.com/images/certificates/${id}.pdf`}
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
           >
