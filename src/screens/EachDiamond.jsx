@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { useResizeObserver } from "@wojtekmaj/react-hooks";
+// import { useResizeObserver } from "@wojtekmaj/react-hooks";
 import { Button } from "react-bootstrap";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -24,7 +24,7 @@ export default function EachDiamond() {
  const resizeObserverOptions = {};
 
  const maxWidth = 800;
- 
+
  const onResize = useCallback((entries) => {
   const [entry] = entries;
 
@@ -33,7 +33,7 @@ export default function EachDiamond() {
   }
 }, []);
 
-useResizeObserver(containerRef, resizeObserverOptions, onResize);
+// useResizeObserver(containerRef, resizeObserverOptions, onResize);
   function onDocumentLoadSuccess({
     numPages: nextNumPages,
   }) {
