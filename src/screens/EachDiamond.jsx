@@ -1,135 +1,112 @@
-// import { Document, Page, pdfjs } from 'react-pdf';
-
-// import { Link, useParams, useNavigate } from "react-router-dom";
-// pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-//   'pdfjs-dist/build/pdf.worker.min.js',
-//   import.meta.url,
-// ).toString();
-// pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
-// function EachDiamond(){
-
-//         return(
-//         <div>
-//             <h1>Diamond Details</h1>
-
-//         <div style={{marginLeft:"27%"}}>
-//       <Document file={ new URL('http://www.hasenfeld-stein.com/images/certificates/Q0526932.pdf')}>
-
-//       </Document>
-//             <p style={{marginLeft:"27%"}}>
-//               Page 1 of 2
-//             </p>
-//           </div>
-//         </div>
-//     )
-// }
-
-// export default EachDiamond;
-
-import { useCallback, useState } from "react";
+// import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
+import { useEffect, useRef, useState } from "react";
+import { Document, Page, pdfjs } from "react-pdf";
 import { useParams, Link } from "react-router-dom";
-import { useResizeObserver } from "@wojtekmaj/react-hooks";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Button } from "react-bootstrap";
-import { pdfjs, Document, Page } from "react-pdf";
-import { useNavigate } from "react-router-dom";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-import "react-pdf/dist/esm/Page/TextLayer.css";
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-// import './Sample.css';
-
-import { PDFDocumentProxy } from "pdfjs-dist";
-
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.js",
-  import.meta.url
-).toString();
-
-const options = {
-  cMapUrl: "/cmaps/",
-  standardFontDataUrl: "/standard_fonts/",
-};
-
-const resizeObserverOptions = {};
-
-const maxWidth = 800;
-
-//  PDFFile = string | File | null;
-
-export default function EachDiamond() {
-  // const [file, setFile] = useState('./sample.pdf');
+export default function PDFViewer(props) {
+  const [numPages, setNumPages] = useState(0);
+  const [pageNumber, setPageNumber] = useState(1); // start on first page
+  const [loading, setLoading] = useState(true);
+  const [pageWidth, setPageWidth] = useState(0);
   const { id } = useParams();
-  const [numPages, setNumPages] = useState();
-  const [containerRef, setContainerRef] = useState(null);
-  const [containerWidth, setContainerWidth] = useState();
-
-  const onResize = useCallback((entries) => {
-    const [entry] = entries;
-
-    if (entry) {
-      setContainerWidth(entry.contentRect.width);
-    }
-  }, []);
-
-  useResizeObserver(containerRef, resizeObserverOptions, onResize);
-
-  // function onFileChange(event: React.ChangeEvent): void {
-  //   const { files } = event.target;
-
-  //   if (files && files[0]) {
-  //     setFile(files[0] || null);
-  //   }
-  // }
-
-
- const navigate=useNavigate()
   function onDocumentLoadSuccess({
     numPages: nextNumPages,
   }) {
     setNumPages(nextNumPages);
   }
 
-  function handleClick (){
-  navigate(-1)
+  function onPageLoadSuccess() {
+    setPageWidth(window.innerWidth);
+    setLoading(false);
   }
 
+  const options = {
+    cMapUrl: "cmaps/",
+    cMapPacked: true,
+    standardFontDataUrl: "standard_fonts/",
+  };
+
+  // Go to next page
+  function goToNextPage() {
+    setPageNumber((prevPageNumber) => prevPageNumber + 1);
+  }
+
+  function goToPreviousPage() {
+    setPageNumber((prevPageNumber) => prevPageNumber - 1);
+  }
+
+
   return (
-    <div className="Example">
-      
-        <Button
-        onClick={handleClick}
-          type="button"
-          variant="primary"
-          style={{ textDecoration: "none" }}
+    <>
+      <Nav pageNumber={pageNumber} numPages={numPages} />
+      <div
+        hidden={loading}
+        style={{ height: "calc(100vh - 64px)" }}
+        className="flex items-center"
+      >
+        <div
+          className={`flex items-center justify-between w-full absolute z-10 px-2`}
         >
-          Go Back to Necklace
-        </Button>
+          <button
+            onClick={goToPreviousPage}
+            disabled={pageNumber <= 1}
+            className="relative h-[calc(100vh - 64px)] px-2 py-24 text-gray-400 hover:text-gray-50 focus:z-20"
+          >
+            <span className="sr-only">Previous</span>
+            {/* <ChevronLeftIcon className="h-10 w-10" aria-hidden="true" /> */}
+          </button>
+         
+        </div>
 
-      <h1>Diamond Details</h1>
-
-      <div className="cert-conta">
-        {/* <div className="Example__container__load">
-          <label htmlFor="file">Load from file:</label>{' '}
-          <input onChange={onFileChange} type="file" />
-        </div> */}
-        <div className="cert-container" ref={setContainerRef}>
+        <div className="h-full flex justify-center mx-auto">
           <Document
-            file={`https://www.hasenfeld-stein.com/images/certificates/${id}.pdf`}
+         //   file={props.file}
+
+         file={`https://www.hasenfeld-stein.com/images/certificates/${id}.pdf`}
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
+            renderMode="canvas"
+            className=""
           >
-            {Array.from(new Array(numPages), (el, index) => (
-              <Page
-                key={`page_${index + 1}`}
-                pageNumber={index + 1}
-                width={
-                  containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth
-                }
-              />
-            ))}
+            <Page
+              className=""
+              key={pageNumber}
+              pageNumber={pageNumber}
+              renderAnnotationLayer={false}
+              renderTextLayer={false}
+              onLoadSuccess={onPageLoadSuccess}
+              onRenderError={() => setLoading(false)}
+              width={Math.max(pageWidth * 0.8, 390)}
+            />
           </Document>
         </div>
       </div>
-    </div>
+    </>
+  );
+}
+
+
+function Nav({pageNumber, numPages}) {
+  return (
+    <nav className="bg-black">
+      <div className="mx-auto px-2 sm:px-6 lg:px-8">
+        <div className="relative flex h-16 items-center justify-between">
+          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <div className="flex flex-shrink-0 items-center">
+              <p className="text-2xl font-bold tracking-tighter text-white">
+                Papermark
+              </p>
+            </div>
+          </div>
+          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <div className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium">
+              <span>{pageNumber}</span>
+              <span className="text-gray-400"> / {numPages}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 }
