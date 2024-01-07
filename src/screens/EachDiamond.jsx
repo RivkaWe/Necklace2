@@ -1,15 +1,23 @@
 // import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { useEffect, useRef, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
+
+import { Button } from "react-bootstrap";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-export default function PDFViewer(props) {
+
+export default function EachDiamond() {
+  const navigate =useNavigate()
   const [numPages, setNumPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(1); // start on first page
   const [loading, setLoading] = useState(true);
   const [pageWidth, setPageWidth] = useState(0);
   const { id } = useParams();
+
+ function clickHandler(){
+  navigate(-1)
+ }
   function onDocumentLoadSuccess({
     numPages: nextNumPages,
   }) {
@@ -36,10 +44,22 @@ export default function PDFViewer(props) {
     setPageNumber((prevPageNumber) => prevPageNumber - 1);
   }
 
+  function goBackToNecklace (){
+    navigate(-1)
+  }
 
   return (
     <>
-      <Nav pageNumber={pageNumber} numPages={numPages} />
+      {/* <Nav pageNumber={pageNumber} numPages={numPages} /> */}
+
+      <Button
+            onClick={goBackToNecklace}
+            type="button"
+            variant="primary"
+            style={{ textDecoration: "none" }}
+          >
+Go Back To Necklace
+          </Button>
       <div
         hidden={loading}
         style={{ height: "calc(100vh - 64px)" }}
@@ -48,16 +68,20 @@ export default function PDFViewer(props) {
         <div
           className={`flex items-center justify-between w-full absolute z-10 px-2`}
         >
-          <button
+         {/* <button
             onClick={goToPreviousPage}
             disabled={pageNumber <= 1}
             className="relative h-[calc(100vh - 64px)] px-2 py-24 text-gray-400 hover:text-gray-50 focus:z-20"
           >
             <span className="sr-only">Previous</span>
             {/* <ChevronLeftIcon className="h-10 w-10" aria-hidden="true" /> */}
-          </button>
+           {/* </button>  */} 
+
+      
          
         </div>
+
+       
 
         <div className="h-full flex justify-center mx-auto">
           <Document
@@ -95,7 +119,9 @@ function Nav({pageNumber, numPages}) {
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
               <p className="text-2xl font-bold tracking-tighter text-white">
-                Papermark
+             
+       
+      
               </p>
             </div>
           </div>
