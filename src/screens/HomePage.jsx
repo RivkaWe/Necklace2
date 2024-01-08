@@ -187,10 +187,10 @@ const HomePage = () => {
               ></img>
               <ul>
                 <li>
-                  <h2>356.55 cts</h2>
+                  <h2>51.63cts</h2>
                 </li>
                 <li>
-                  <h2>D-H VV-SI</h2>
+                  <h2>I-J VVS-VS</h2>
                 </li>
               </ul>
             </div>
