@@ -186,11 +186,14 @@ const HomePage = () => {
                 alt="FireCushion"
               ></img>
               <ul>
+              <li>
+                  <h2>86 Diamonds</h2>
+                </li>
                 <li>
                   <h2>51.63cts</h2>
                 </li>
                 <li>
-                  <h2>I-J VVS-VS</h2>
+                  <h2>I-J</h2>
                 </li>
               </ul>
             </div>
