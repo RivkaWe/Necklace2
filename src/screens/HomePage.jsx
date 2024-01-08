@@ -126,6 +126,7 @@ const HomePage = () => {
             className="necklaceImage"
             id="responsive-image"
           />
+          
           <map name="image-map" id="image-map">
             {/* Placeholder values are used here */}
             <area
@@ -175,13 +176,14 @@ const HomePage = () => {
           </map>
 
           <div className="centered">
+         
             <div className="container">
-           
+     
               <p className="instructions">
                 
                 Click on any diamond to view the certificate.
               </p>
-           
+              <div className="popup" id="popup"></div>
               <ul>
                 <li>
                 <img
@@ -201,11 +203,12 @@ const HomePage = () => {
                   <h2>I-J</h2>
                 </li>
               </ul>
+              
             </div>
           </div>
         </div>
       </div>
-      <div className="popup" id="popup"></div>
+      {/* <div className="popup" id="popup"></div> */}
     </div>
   );
 };
