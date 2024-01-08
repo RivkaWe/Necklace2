@@ -87,6 +87,10 @@ ul {
   ul{
     gap:0px;
   }
+
+  .top-container{
+    margin-top: 40px;
+  }
 }
 
 /* Media query for screens larger than 768px (desktop) */
