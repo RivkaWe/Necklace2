@@ -158,7 +158,18 @@ let startX
   return (
     <div>
       <div className="top-container">
+
+     
         <div className="image-container">
+
+        <p className="instructions desktop">
+                
+                Click on any diamond to view the certificate.
+              </p>
+              <p className="instructions mobile">
+                
+                Zoom and tap on any diamond to view the certificate.
+              </p>
           <img
             src="necklacePlaceholder.jpg"
             alt="Your Image"
@@ -231,14 +242,7 @@ let startX
               {/* <div className="popup" id="popup"></div> */}
               <ul>
                 <li>
-                <p className="instructions desktop">
-                
-                Click on any diamond to view the certificate.
-              </p>
-              <p className="instructions mobile">
-                
-                Zoom and tap on any diamond to view the certificate.
-              </p>
+             
                 </li>
                 <li>
                 <img
