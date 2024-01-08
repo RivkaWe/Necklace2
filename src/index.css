@@ -70,7 +70,7 @@ background-color: aqua;
 ul {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   list-style: none;
   justify-content: center;
   align-items: center;
