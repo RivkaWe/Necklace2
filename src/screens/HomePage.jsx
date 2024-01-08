@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import React, { useEffect} from "react";
+import {useNavigate, useLocation } from "react-router-dom";
 
 const HomePage = () => {
 
@@ -12,8 +12,7 @@ const HomePage = () => {
   const location = useLocation();
 
   // Constants for original image dimensions
-  const originalWidth = 1500;
-  const originalHeight = 1500;
+  
 
   // const showPopup = (content) => {
   //   const popup = document.getElementById("popup");
@@ -49,7 +48,7 @@ const HomePage = () => {
           const coordsX = parseFloat(columns[header.indexOf("coordsX")]);
           const coordsY = parseFloat(columns[header.indexOf("coordsY")]);
           const coordsZ = parseFloat(columns[header.indexOf("coordsZ")]);
-          const content = columns[header.indexOf("title")];
+          // const content = columns[header.indexOf("title")];
           const percentageX = (coordsX / originalWidth) * 100;
           const percentageY = (coordsY / originalHeight) * 100;
           const percentageZ = (coordsZ / originalWidth) * 100;
@@ -86,22 +85,63 @@ const HomePage = () => {
       .catch((error) => console.error("Error reading CSV data:", error));
   };
 
+  // useEffect(() => {
+  //   // Initial dimensions of the image
+  
+  //   const handleNavigation = () => {
+  //     updateCoordinates();
+  //   };
+
+  //   window.addEventListener("resize", updateCoordinates);
+  //   window.addEventListener("popstate", handleNavigation);
+  //   window.addEventListener("pageshow", handleNavigation);
+
+  //   // Clean up the event listener when the component unmounts
+  //   return () => {
+  //     window.removeEventListener("resize", updateCoordinates);
+  //     window.removeEventListener("popstate", handleNavigation);
+  //     window.removeEventListener("pageshow", handleNavigation);
+  //   };
+  // }, [location.pathname, navigate]);
+let startX
   useEffect(() => {
     // Initial dimensions of the image
-  
+    
     const handleNavigation = () => {
       updateCoordinates();
+    };
+
+    const handleTouchStart = (event) => {
+      startX = event.touches[0].clientX;
+    };
+
+    const handleTouchMove = (event) => {
+      if (!startX) return;
+
+      const currentX = event.touches[0].clientX;
+      const deltaX = currentX - startX;
+
+      // Adjust your logic based on deltaX
+      // For example, you might want to update coordinates or handle swipe gestures
+      updateCoordinates();
+
+      // Reset startX to null after handling the touch move
+      startX = null;
     };
 
     window.addEventListener("resize", updateCoordinates);
     window.addEventListener("popstate", handleNavigation);
     window.addEventListener("pageshow", handleNavigation);
+    window.addEventListener("touchstart", handleTouchStart, false);
+    window.addEventListener("touchmove", handleTouchMove, false);
 
-    // Clean up the event listener when the component unmounts
+    // Clean up the event listeners when the component unmounts
     return () => {
       window.removeEventListener("resize", updateCoordinates);
       window.removeEventListener("popstate", handleNavigation);
       window.removeEventListener("pageshow", handleNavigation);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
     };
   }, [location.pathname, navigate]);
 
