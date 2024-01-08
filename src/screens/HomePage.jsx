@@ -15,16 +15,16 @@ const HomePage = () => {
   const originalWidth = 1500;
   const originalHeight = 1500;
 
-  const showPopup = (content) => {
-    const popup = document.getElementById("popup");
-    popup.innerHTML = "<p>" + content + "</p>";
-    popup.style.display = "block";
-  };
+  // const showPopup = (content) => {
+  //   const popup = document.getElementById("popup");
+  //   popup.innerHTML = "<p>" + content + "</p>";
+  //   popup.style.display = "block";
+  // };
 
-  const hidePopup = () => {
-    const popup = document.getElementById("popup");
-    popup.style.display = "none";
-  };
+  // const hidePopup = () => {
+  //   const popup = document.getElementById("popup");
+  //   popup.style.display = "none";
+  // };
 
   const updateCoordinates = () => {
     const image = document.getElementById("responsive-image");
@@ -67,19 +67,19 @@ const HomePage = () => {
           area.setAttribute("title", columns[header.indexOf("title")]);
           area.setAttribute("alt", columns[header.indexOf("alt")]);
           area.setAttribute("shape", "circle");
-          area.addEventListener("mouseover", () => showPopup(content));
-          area.addEventListener("mouseout", hidePopup);
+          // area.addEventListener("mouseover", () => showPopup(content));
+          // area.addEventListener("mouseout", hidePopup);
 
-           (
-            <Link key={`${pixelX}-${pixelY}-${pixelZ}`} to={`diamond/${columns[header.indexOf("Inventory")]}`}>
-              <area
-                coords={`${pixelX},${pixelY},${pixelZ}`}
-                shape="circle"
-                onMouseOver={() => showPopup(content)}
-                onMouseOut={hidePopup}
-                href={`diamond/${columns[header.indexOf("Inventory")]}`}         />
-            </Link>
-          );
+          //  (
+          //   <Link key={`${pixelX}-${pixelY}-${pixelZ}`} to={`diamond/${columns[header.indexOf("Inventory")]}`}>
+          //     <area
+          //       coords={`${pixelX},${pixelY},${pixelZ}`}
+          //       shape="circle"
+          //       onMouseOver={() => showPopup(content)}
+          //       onMouseOut={hidePopup}
+          //       href={`diamond/${columns[header.indexOf("Inventory")]}`}         />
+          //   </Link>
+          // );
           mapElement.appendChild(area);
         }
       })
@@ -138,7 +138,7 @@ const HomePage = () => {
               coords="0,0,0"
               shape="circle"
               onMouseOver=""
-              onMouseOut={() => hidePopup()}
+              // onMouseOut={() => hidePopup()}
             />
             <area
               target="_blank"
@@ -149,7 +149,7 @@ const HomePage = () => {
               coords="0,0,0"
               shape="circle"
               onMouseOver=""
-              onMouseOut={() => hidePopup()}
+              // onMouseOut={() => hidePopup()}
             />
             <area
               target="_blank"
@@ -160,7 +160,7 @@ const HomePage = () => {
               coords="0,0,0"
               shape="circle"
               onMouseOver=""
-              onMouseOut={() => hidePopup()}
+              // onMouseOut={() => hidePopup()}
             />
             <area
               target="_blank"
@@ -171,7 +171,7 @@ const HomePage = () => {
               coords="0,0,0"
               shape="circle"
               onMouseOver=""
-              onMouseOut={() => hidePopup()}
+              // onMouseOut={() => hidePopup()}
             />
           </map>
 
@@ -183,7 +183,7 @@ const HomePage = () => {
                 
                 Click on any diamond to view the certificate.
               </p>
-              <div className="popup" id="popup"></div>
+              {/* <div className="popup" id="popup"></div> */}
               <ul>
                 <li>
                 <img
