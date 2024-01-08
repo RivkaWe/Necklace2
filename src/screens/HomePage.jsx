@@ -218,7 +218,7 @@ let startX
           <div className="centered">
          
             <div className="container">
-     
+{/*      
               <p className="instructions desktop">
                 
                 Click on any diamond to view the certificate.
@@ -226,7 +226,7 @@ let startX
               <p className="instructions mobile">
                 
                 Zoom and tap on any diamond to view the certificate.
-              </p>
+              </p> */}
               
               {/* <div className="popup" id="popup"></div> */}
               <ul>
