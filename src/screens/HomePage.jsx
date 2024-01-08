@@ -176,16 +176,21 @@ const HomePage = () => {
 
           <div className="centered">
             <div className="container">
+           
               <p className="instructions">
+                
                 Click on any diamond to view the certificate.
               </p>
-              <img
+           
+              <ul>
+                <li>
+                <img
                 src="FireCushion logo.jpg"
                 width="200px"
                 className="logo"
                 alt="FireCushion"
               ></img>
-              <ul>
+                </li>
               <li>
                   <h2>86 Diamonds</h2>
                 </li>
