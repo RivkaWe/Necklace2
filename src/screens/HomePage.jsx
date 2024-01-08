@@ -231,6 +231,16 @@ let startX
               {/* <div className="popup" id="popup"></div> */}
               <ul>
                 <li>
+                <p className="instructions desktop">
+                
+                Click on any diamond to view the certificate.
+              </p>
+              <p className="instructions mobile">
+                
+                Zoom and tap on any diamond to view the certificate.
+              </p>
+                </li>
+                <li>
                 <img
                 src="FireCushion logo.jpg"
                 width="200px"

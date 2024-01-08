@@ -84,6 +84,9 @@ ul {
   .mobile{
     display: inline;
   }
+  ul{
+    gap:5px;
+  }
 }
 
 /* Media query for screens larger than 768px (desktop) */
