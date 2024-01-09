@@ -56,6 +56,7 @@ align-items: center;
 justify-content: center;
 flex-wrap: wrap;
 text-align: center;
+margin-top: 20px;
 }
 .necklaceImage {
   width: 100%;
@@ -69,10 +70,36 @@ background-color: aqua;
 
 ul {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  gap: 10px;
   list-style: none;
   justify-content: center;
   align-items: center;
 
 }
 
+@media only screen and (max-width: 768px) {
+  .desktop {
+    display:none;
+  }
+  .mobile{
+    display: inline;
+  }
+  ul{
+    gap:0px;
+  }
+
+  /* .top-container{
+    margin-top: 40px;
+  } */
+}
+
+/* Media query for screens larger than 768px (desktop) */
+@media only screen and (min-width: 769px) {
+  .desktop {
+    display:block;
+  }
+  .mobile{
+    display: none;
+  }
+}
