@@ -70,16 +70,16 @@ const HomePage = () => {
           area.addEventListener("mouseover", () => showPopup(content));
           area.addEventListener("mouseout", hidePopup);
 
-           (
-            <Link key={`${pixelX}-${pixelY}-${pixelZ}`} to={`diamond/${columns[header.indexOf("Inventory")]}`}>
-              <area
-                coords={`${pixelX},${pixelY},${pixelZ}`}
-                shape="circle"
-                onMouseOver={() => showPopup(content)}
-                onMouseOut={hidePopup}
-                href={`diamond/${columns[header.indexOf("Inventory")]}`}         />
-            </Link>
-          );
+          //  (
+          //   // <Link key={`${pixelX}-${pixelY}-${pixelZ}`} to={`diamond/${columns[header.indexOf("Inventory")]}`}>
+          //   //   <area
+          //   //     coords={`${pixelX},${pixelY},${pixelZ}`}
+          //   //     shape="circle"
+          //   //     onMouseOver={() => showPopup(content)}
+          //   //     onMouseOut={hidePopup}
+          //   //     href={`diamond/${columns[header.indexOf("Inventory")]}`}         />
+          //   // </Link>
+          // );
           mapElement.appendChild(area);
         }
       })
