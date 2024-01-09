@@ -78,28 +78,51 @@ ul {
 
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 480px){
   .desktop {
     display:none;
   }
   .mobile{
-    display: inline;
+    display: block;
+    background-color: darkblue;
+    color:white;
+   }
+
+  .tablet{
+    display: none;
   }
-  ul{
-    gap:0px;
+  
+    .container{
+      margin-top: 100px;
+     
+    }
   }
 
-  /* .top-container{
-    margin-top: 40px;
-  } */
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 768px) {
+  .desktop {
+    display:none;
+  }
+  .tablet{
+    display: inline;
+  }
+  .mobile{
+    display: none;
+  }
+
+
+
 }
 
 /* Media query for screens larger than 768px (desktop) */
-@media only screen and (min-width: 769px) {
+@media only screen and (min-device-width: 769px) {
   .desktop {
     display:block;
   }
   .mobile{
+    display: none;
+  }
+  .tablet{
     display: none;
   }
 }
