@@ -36,6 +36,7 @@ background-color: transparent;
   align-items: center;
   background-color: transparent;
   /* object-fit: contain; */
+
   /* margin-top: 20px; */
 }
 
@@ -136,6 +137,13 @@ li{
 
     .logo{
       width:175px;
+    }
+
+    .cert-container {
+   margin-top: 100px;
+      display:contents;
+      
+      /* margin-top: 20px; */
     }
   }
 

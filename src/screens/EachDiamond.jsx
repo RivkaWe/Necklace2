@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import { useParams, Link, useNavigate } from "react-router-dom";
-// import { useResizeObserver } from "@wojtekmaj/react-hooks";
+import { useResizeObserver } from "@wojtekmaj/react-hooks";
 import { Button } from "react-bootstrap";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -33,7 +33,7 @@ export default function EachDiamond() {
   }
 }, []);
 
-// useResizeObserver(containerRef, resizeObserverOptions, onResize);
+useResizeObserver(containerRef, resizeObserverOptions, onResize);
   function onDocumentLoadSuccess({
     numPages: nextNumPages,
   }) {
@@ -106,7 +106,7 @@ Go Back To Necklace
          file={`https://www.hasenfeld-stein.com/images/certificates/${id}.pdf`}
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
-            renderMode="canvas"
+            // renderMode="canvas"
             className=""
           >
             <Page
@@ -130,28 +130,28 @@ Go Back To Necklace
 }
 
 
-function Nav({pageNumber, numPages}) {
-  return (
-    <nav className="bg-black">
-      <div className="mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex flex-shrink-0 items-center">
-              <p className="text-2xl font-bold tracking-tighter text-white">
+// function Nav({pageNumber, numPages}) {
+//   return (
+//     <nav className="bg-black">
+//       <div className="mx-auto px-2 sm:px-6 lg:px-8">
+//         <div className="relative flex h-16 items-center justify-between">
+//           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+//             <div className="flex flex-shrink-0 items-center">
+//               <p className="text-2xl font-bold tracking-tighter text-white">
              
        
       
-              </p>
-            </div>
-          </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <div className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium">
-              <span>{pageNumber}</span>
-              <span className="text-gray-400"> / {numPages}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
-}
+//               </p>
+//             </div>
+//           </div>
+//           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+//             <div className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium">
+//               <span>{pageNumber}</span>
+//               <span className="text-gray-400"> / {numPages}</span>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// }
