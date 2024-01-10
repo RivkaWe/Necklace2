@@ -1,8 +1,14 @@
+
+*{
+  background-color: black;
+  color:white;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+background-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -28,40 +34,65 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
   /* object-fit: contain; */
   /* margin-top: 20px; */
+}
+
+.react-pdf_Page{
+  background-color: transparent;
 }
 .image-container {
   position: relative;
   max-width: 1150px;
+  height:100vh;
+  display:flex;
   height: auto;
-  overflow: none;
+  overflow: hidden;
   /* width:50vw; */
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+  width:100%;
+  background-color: transparent;
+
+
+}
+.necklaceImage{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: bottom;
 }
 /* Centered text */
 .centered {
 position: absolute;
-top: 25%;
+top: 40%;
 left: 50%;
 transform: translate(-50%, -50%);
 font-family:Verdana, Geneva, Tahoma, sans-serif;
+background-color: transparent;
 
 }
+
+.instructions{
+  margin-top:30px;
+}
+
+.logo{
+  background-color: transparent;
+}
 .container {
+  
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
 flex-wrap: wrap;
 text-align: center;
-margin-top: 20px;
+margin-top: 100px;
+background-color: transparent;
 }
-.necklaceImage {
-  width: 100%;
 
-}
 /* }
 .pdf{
 width:100vw;
@@ -75,7 +106,12 @@ ul {
   list-style: none;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
 
+}
+
+li{
+  background-color: transparent;
 }
 
 @media only screen and (max-width: 480px){
@@ -84,8 +120,9 @@ ul {
   }
   .mobile{
     display: block;
-    background-color: darkblue;
+    /* background-color: darkblue; */
     color:white;
+    margin-top: 50px;
    }
 
   .tablet{
@@ -96,6 +133,10 @@ ul {
       margin-top: 100px;
      
     }
+
+    .logo{
+      width:175px;
+    }
   }
 
 
@@ -105,11 +146,15 @@ ul {
   }
   .tablet{
     display: inline;
+    
   }
   .mobile{
     display: none;
   }
 
+  .logo{
+    width: 225px;
+  }
 
 
 }
@@ -124,5 +169,9 @@ ul {
   }
   .tablet{
     display: none;
+  }
+
+  .logo{
+    width:250px;
   }
 }

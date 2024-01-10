@@ -167,18 +167,29 @@ let startX
 
   return (
     <div>
+         <p className="instructions mobile">
+                
+                Zoom and tap on any diamond to view the certificate.
+              </p>
+
+              <p className="instructions desktop">
+                
+                Click on any diamond to view the certificate.
+              </p>
+
+              <p className="instructions tablet">
+                
+                Click or tap on any diamond to view the certificate.
+              </p>
       <div className="top-container">
 
      
         <div className="image-container">
 
       
-              <p className="instructions mobile">
-                
-                Zoom and tap on any diamond to view the certificate.
-              </p>
+           
           <img
-            src="necklacePlaceholder.jpg"
+            src="blackNecklace.jpg"
             alt="Your Image"
             useMap="#image-map"
             className="necklaceImage"
@@ -241,21 +252,11 @@ let startX
               
               {/* <div className="popup" id="popup"></div> */}
               <ul>
-                <li>
-                <p className="instructions desktop">
                 
-                Click on any diamond to view the certificate.
-              </p>
-
-              <p className="instructions tablet">
-                
-                Click or tap on any diamond to view the certificate.
-              </p>
-                </li>
                 <li>
                 <img
-                src="FireCushion logo.jpg"
-                width="200px"
+                src="FireCushionLogoTransparent.png"
+                // width="200px"
                 className="logo"
                 alt="FireCushion"
               ></img>
@@ -268,6 +269,9 @@ let startX
                 </li>
                 <li>
                   <h2>I-J</h2>
+                </li>
+                <li>
+           
                 </li>
               </ul>
               

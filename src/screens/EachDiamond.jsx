@@ -99,7 +99,7 @@ Go Back To Necklace
 
        
 
-        <div className="h-full flex justify-center mx-auto">
+        <div className="h-full flex justify-center mx-auto cert-container">
           <Document
          //   file={props.file}
 

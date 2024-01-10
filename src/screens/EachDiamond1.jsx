@@ -33,8 +33,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
 import { pdfjs, Document, Page } from "react-pdf";
 import { useNavigate } from "react-router-dom";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-import "react-pdf/dist/esm/Page/TextLayer.css";
+// import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+// import "react-pdf/dist/esm/Page/TextLayer.css";
 import { useParams, Link } from "react-router-dom";
 // import './Sample.css';
 
@@ -117,6 +117,7 @@ export default function EachDiamond() {
             file={`https://www.hasenfeld-stein.com/images/certificates/${id}.pdf`}
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
+            renderMode="canvas"
           >
             {Array.from(new Array(numPages), (el, index) => (
               <Page
