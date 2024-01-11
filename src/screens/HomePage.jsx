@@ -1,5 +1,7 @@
 import React, { useEffect} from "react";
-import {useNavigate, useLocation } from "react-router-dom";
+import {useNavigate, useLocation, Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+
 
 const HomePage = () => {
 
@@ -14,16 +16,16 @@ const HomePage = () => {
   // Constants for original image dimensions
   
 
-  const showPopup = (content) => {
-    const popup = document.getElementById("popup");
-    popup.innerHTML = "<p>" + content + "</p>";
-    popup.style.display = "block";
-  };
+  // const showPopup = (content) => {
+  //   const popup = document.getElementById("popup");
+  //   popup.innerHTML = "<p>" + content + "</p>";
+  //   popup.style.display = "block";
+  // };
 
-  const hidePopup = () => {
-    const popup = document.getElementById("popup");
-    popup.style.display = "none";
-  };
+  // const hidePopup = () => {
+  //   const popup = document.getElementById("popup");
+  //   popup.style.display = "none";
+  // };
 
   const updateCoordinates = () => {
     const image = document.getElementById("responsive-image");
@@ -66,8 +68,8 @@ const HomePage = () => {
           area.setAttribute("title", columns[header.indexOf("title")]);
           area.setAttribute("alt", columns[header.indexOf("alt")]);
           area.setAttribute("shape", "circle");
-          area.addEventListener("mouseover", () => showPopup(content));
-          area.addEventListener("mouseout", hidePopup);
+          // area.addEventListener("mouseover", () => showPopup(content));
+          // area.addEventListener("mouseout", hidePopup);
 
           //  (
           //   <Link key={`${pixelX}-${pixelY}-${pixelZ}`} to={`diamond/${columns[header.indexOf("Inventory")]}`}>
@@ -181,6 +183,7 @@ let startX
                 
                 Click or tap on any diamond to view the certificate.
               </p>
+              
       <div className="top-container">
 
      
@@ -207,7 +210,7 @@ let startX
               coords="0,0,0"
               shape="circle"
               onMouseOver=""
-              onMouseOut={() => hidePopup()}
+              // onMouseOut={() => hidePopup()}
             />
             <area
               target="_blank"
@@ -218,7 +221,7 @@ let startX
               coords="0,0,0"
               shape="circle"
               onMouseOver=""
-              onMouseOut={() => hidePopup()}
+              // onMouseOut={() => hidePopup()}
             />
             <area
               target="_blank"
@@ -229,7 +232,7 @@ let startX
               coords="0,0,0"
               shape="circle"
               onMouseOver=""
-              onMouseOut={() => hidePopup()}
+              // onMouseOut={() => hidePopup()}
             />
             <area
               target="_blank"
@@ -240,17 +243,17 @@ let startX
               coords="0,0,0"
               shape="circle"
               onMouseOver=""
-              onMouseOut={() => hidePopup()}
+              // onMouseOut={() => hidePopup()}
             />
           </map>
 
           <div className="centered">
          
             <div className="container">
-     
+{/*      
            
               
-              <div className="popup" id="popup"></div> 
+              {/* <div className="popup" id="popup"></div> */}
               <ul>
                 
                 <li>
@@ -271,7 +274,9 @@ let startX
                   <h2>I-J</h2>
                 </li>
                 <li>
-           
+                <Link to= '/details'>
+              <Button variant='light'>Details</Button>
+              </Link>
                 </li>
               </ul>
               

@@ -74,7 +74,7 @@ useResizeObserver(containerRef, resizeObserverOptions, onResize);
             variant="primary"
             style={{ textDecoration: "none" }}
           >
-Go Back To Necklace
+Go Back
           </Button>
       <div
         hidden={loading}
