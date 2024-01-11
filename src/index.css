@@ -1,14 +1,13 @@
-
-*{
+* {
   background-color: black;
-  color:white;
+  color: white;
 }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-background-color: transparent;
+  background-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -40,25 +39,23 @@ background-color: transparent;
   /* margin-top: 20px; */
 }
 
-.react-pdf_Page{
+.react-pdf_Page {
   background-color: transparent;
 }
 .image-container {
   position: relative;
   max-width: 1150px;
-  height:100vh;
-  display:flex;
+  height: 100vh;
+  display: flex;
   height: auto;
   overflow: hidden;
   /* width:50vw; */
   align-items: flex-end;
   justify-content: center;
-  width:100%;
+  width: 100%;
   background-color: transparent;
-
-
 }
-.necklaceImage{
+.necklaceImage {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -66,32 +63,30 @@ background-color: transparent;
 }
 /* Centered text */
 .centered {
-position: absolute;
-top: 40%;
-left: 50%;
-transform: translate(-50%, -50%);
-font-family:Verdana, Geneva, Tahoma, sans-serif;
-background-color: transparent;
-
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: transparent;
 }
 
-.instructions{
-  margin-top:30px;
+.instructions {
+  margin-top: 30px;
 }
 
-.logo{
+.logo {
   background-color: transparent;
 }
 .container {
-  
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-flex-wrap: wrap;
-text-align: center;
-margin-top: 100px;
-background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-top: 100px;
+  background-color: transparent;
 }
 
 /* }
@@ -108,78 +103,75 @@ ul {
   justify-content: center;
   align-items: center;
   background-color: transparent;
-
 }
 
-li{
+li {
   background-color: transparent;
 }
 
-@media only screen and (max-width: 480px){
+@media only screen and (max-width: 480px) {
   .desktop {
-    display:none;
-  }
-  .mobile{
-    display: block;
-    /* background-color: darkblue; */
-    color:white;
-    margin-top: 50px;
-   }
-
-  .tablet{
     display: none;
   }
-  
-    .container{
-      margin-top: 100px;
-     
-    }
-
-    .logo{
-      width:175px;
-    }
-
-    .cert-container {
-   margin-top: 100px;
-      display:contents;
-      
-      /* margin-top: 20px; */
-    }
+  .mobile {
+    display: block;
+    /* background-color: darkblue; */
+    color: white;
+    margin-top: 50px;
   }
 
+  .tablet {
+    display: none;
+  }
+
+  .container {
+    margin-top: 100px;
+  }
+
+  .logo {
+    width: 175px;
+  }
+
+  .cert-container {
+    margin-top: 100px;
+    display: contents;
+
+    /* margin-top: 20px; */
+  }
+}
+.justify-content-center{
+  display: contents;
+}
 
 @media only screen and (min-device-width: 481px) and (max-device-width: 768px) {
   .desktop {
-    display:none;
+    display: none;
   }
-  .tablet{
+  .tablet {
     display: inline;
-    
   }
-  .mobile{
+  .mobile {
     display: none;
   }
 
-  .logo{
+  .logo {
     width: 225px;
   }
-
-
 }
 
 /* Media query for screens larger than 768px (desktop) */
 @media only screen and (min-device-width: 769px) {
   .desktop {
-    display:block;
+    display: block;
   }
-  .mobile{
+  .mobile {
     display: none;
   }
-  .tablet{
+  .tablet {
     display: none;
   }
 
-  .logo{
-    width:250px;
+  .logo {
+    width: 250px;
   }
 }

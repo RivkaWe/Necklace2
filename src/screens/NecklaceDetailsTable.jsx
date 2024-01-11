@@ -1,7 +1,7 @@
 // CSVTable.js
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom'
-import {Table, Row, Col} from 'react-bootstrap'
+import {Table, Row, Col, Container} from 'react-bootstrap'
 import Papa from 'papaparse';
 
 const NecklaceDetailsTable = () => {
@@ -44,10 +44,13 @@ const NecklaceDetailsTable = () => {
   };
 
   return (
-    <div>
-        <h2>Necklace Details</h2>
+
+       
+       <Container>
+       <h2>Necklace Details</h2>
         <Row className='justify-content-center'>
-      <Table className='table-striped w-auto '>
+            
+      <Table className='table-striped w-auto'>
         <thead className='bg-light sticky-top top-0'>
           <tr>
             {tableData.length > 0 &&
@@ -79,8 +82,10 @@ const NecklaceDetailsTable = () => {
           )} */}
         </tbody>
       </Table>
+   
       </Row>
-    </div>
+      </Container>
+
   );
 };
 
