@@ -33,9 +33,9 @@ const HomePage = () => {
     
     const originalWidth = 1421;
     const originalHeight = 1500;
-    const imageWidth = image.width;
-    const imageHeight = image.height;
-    console.log(`updated Coordinates`);
+    const imageWidth = image?.width;
+    const imageHeight = image?.height;
+
     fetch("data.csv")
       .then((response) => response.text())
       .then((csvData) => {
@@ -72,50 +72,13 @@ const HomePage = () => {
           // area.addEventListener("mouseover", () => showPopup(content));
           // area.addEventListener("mouseout", hidePopup);
 
-          //  (
-          //   <Link key={`${pixelX}-${pixelY}-${pixelZ}`} to={`diamond/${columns[header.indexOf("Inventory")]}`}>
-          //     <area
-          //       coords={`${pixelX},${pixelY},${pixelZ}`}
-          //       shape="circle"
-          //       onMouseOver={() => showPopup(content)}
-          //       onMouseOut={hidePopup}
-          //       href={`diamond/${columns[header.indexOf("Inventory")]}`}         />
-          //   </Link>
-          // );
-          //  (
-          //   // <Link key={`${pixelX}-${pixelY}-${pixelZ}`} to={`diamond/${columns[header.indexOf("Inventory")]}`}>
-          //   //   <area
-          //   //     coords={`${pixelX},${pixelY},${pixelZ}`}
-          //   //     shape="circle"
-          //   //     onMouseOver={() => showPopup(content)}
-          //   //     onMouseOut={hidePopup}
-          //   //     href={`diamond/${columns[header.indexOf("Inventory")]}`}         />
-          //   // </Link>
-          // );
+         
           mapElement.appendChild(area);
         }
       })
       .catch((error) => console.error("Error reading CSV data:", error));
   };
 
-  // useEffect(() => {
-  //   // Initial dimensions of the image
-  
-  //   const handleNavigation = () => {
-  //     updateCoordinates();
-  //   };
-
-  //   window.addEventListener("resize", updateCoordinates);
-  //   window.addEventListener("popstate", handleNavigation);
-  //   window.addEventListener("pageshow", handleNavigation);
-
-  //   // Clean up the event listener when the component unmounts
-  //   return () => {
-  //     window.removeEventListener("resize", updateCoordinates);
-  //     window.removeEventListener("popstate", handleNavigation);
-  //     window.removeEventListener("pageshow", handleNavigation);
-  //   };
-  // }, [location.pathname, navigate]);
 let startX
   useEffect(() => {
     // Initial dimensions of the image
