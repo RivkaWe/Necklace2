@@ -17,16 +17,16 @@ const HomePage = () => {
   // Constants for original image dimensions
   
 
-  // const showPopup = (content) => {
-  //   const popup = document.getElementById("popup");
-  //   popup.innerHTML = "<p>" + content + "</p>";
-  //   popup.style.display = "block";
-  // };
+  const showPopup = (content) => {
+    const popup = document.getElementById("popup");
+    popup.innerHTML = "<p>" + content + "</p>";
+    popup.style.display = "block";
+  };
 
-  // const hidePopup = () => {
-  //   const popup = document.getElementById("popup");
-  //   popup.style.display = "none";
-  // }
+  const hidePopup = () => {
+    const popup = document.getElementById("popup");
+    popup.style.display = "none";
+  }
 
   const updateCoordinates = () => {
     const image = document.getElementById("responsive-image");
@@ -51,7 +51,7 @@ const HomePage = () => {
           const coordsX = parseFloat(columns[header.indexOf("coordsX")]);
           const coordsY = parseFloat(columns[header.indexOf("coordsY")]);
           const coordsZ = parseFloat(columns[header.indexOf("coordsZ")]);
-          // const content = columns[header.indexOf("title")];
+          const content = columns[header.indexOf("title")];
           const percentageX = (coordsX / originalWidth) * 100;
           const percentageY = (coordsY / originalHeight) * 100;
           const percentageZ = (coordsZ / originalWidth) * 100;
@@ -69,8 +69,8 @@ const HomePage = () => {
           area.setAttribute("title", columns[header.indexOf("title")]);
           area.setAttribute("alt", columns[header.indexOf("alt")]);
           area.setAttribute("shape", "circle");
-          // area.addEventListener("mouseover", () => showPopup(content));
-          // area.addEventListener("mouseout", hidePopup);
+          area.addEventListener("mouseover", () => showPopup(content));
+          area.addEventListener("mouseout", hidePopup);
 
          
           mapElement.appendChild(area);
@@ -176,7 +176,7 @@ let startX
               coords="0,0,0"
               shape="circle"
               onMouseOver=""
-              // onMouseOut={() => hidePopup()}
+              onMouseOut={() => hidePopup()}
             />
             <area
               target="_blank"
@@ -187,7 +187,7 @@ let startX
               coords="0,0,0"
               shape="circle"
               onMouseOver=""
-              // onMouseOut={() => hidePopup()}
+              onMouseOut={() => hidePopup()}
             />
             <area
               target="_blank"
@@ -198,7 +198,7 @@ let startX
               coords="0,0,0"
               shape="circle"
               onMouseOver=""
-              // onMouseOut={() => hidePopup()}
+              onMouseOut={() => hidePopup()}
             />
             <area
               target="_blank"
@@ -209,17 +209,17 @@ let startX
               coords="0,0,0"
               shape="circle"
               onMouseOver=""
-              // onMouseOut={() => hidePopup()}
+              onMouseOut={() => hidePopup()}
             />
           </map>
 
           <div className="centered">
          
             <div className="container">
-{/*      
+   
            
               
-              {/* <div className="popup" id="popup"></div> */}
+              <div className="popup" id="popup"></div>
               <ul>
                 
                 <li>
