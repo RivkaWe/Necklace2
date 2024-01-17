@@ -47,7 +47,10 @@ const NecklaceDetailsTable = () => {
 
        
        <Container>
-       <h2>Necklace Details</h2>
+        <Link to = '/' style={{color:'white', textDecoration:'none'}}>
+        <h2>Necklace Details</h2>
+        </Link>
+       
         <Row className='justify-content-center'>
             
       <Table className='table-striped w-auto'>
