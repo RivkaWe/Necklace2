@@ -1,6 +1,7 @@
-import React, { useEffect} from "react";
+import React, {  useEffect} from "react";
 import {useNavigate, useLocation, Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import MagnifiedImage from "./MagnifiedImage.js";
 
 
 const HomePage = () => {
@@ -25,12 +26,12 @@ const HomePage = () => {
   // const hidePopup = () => {
   //   const popup = document.getElementById("popup");
   //   popup.style.display = "none";
-  // };
+  // }
 
   const updateCoordinates = () => {
     const image = document.getElementById("responsive-image");
     
-    const originalWidth = 1500;
+    const originalWidth = 1421;
     const originalHeight = 1500;
     const imageWidth = image.width;
     const imageHeight = image.height;
@@ -192,12 +193,14 @@ let startX
       
            
           <img
-            src="blackNecklace.jpg"
+            src="blackNecklace1.jpg"
             alt="Your Image"
             useMap="#image-map"
             className="necklaceImage"
             id="responsive-image"
           />
+
+{/* <MagnifiedImage imageSrc="blackNecklace1.jpg" /> */}
           
           <map name="image-map" id="image-map">
             {/* Placeholder values are used here */}
