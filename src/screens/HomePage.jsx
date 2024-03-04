@@ -140,12 +140,27 @@ let startX
               </p>
 
               <p className="instructions desktop">
+                <div>
+                <img
+                src="HSI LOGO.png"
+                 width="200px"
+                className="logo"
+                alt="HS LOGO"
+              ></img>
+                </div>
                 
                 Click on any diamond to view the certificate.
               </p>
 
               <p className="instructions tablet">
-                
+              <div>
+                <img
+                src="HSI LOGO.png"
+                 width="200px"
+                className="logo"
+                alt="HS LOGO"
+              ></img>
+                </div>
                 Click or tap on any diamond to view the certificate.
               </p>
               
