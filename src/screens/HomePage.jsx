@@ -143,7 +143,7 @@ let startX
                 <div>
                 <img
                 src="HSI LOGO.png"
-                 width="200px"
+                 width="300px"
                 className="logo"
                 alt="HS LOGO"
               ></img>
