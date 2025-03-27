@@ -88,7 +88,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   text-align: center;
-  margin-top: 100px;
+  /* margin-top: 100px; */
   background-color: transparent;
 }
 
@@ -109,7 +109,7 @@ ul {
 }
 
 li {
-  background-color: white;
+  background-color: transparent;
 }
 
 @media only screen and (max-width: 480px) {
@@ -118,25 +118,38 @@ li {
   }
   .mobile {
     display: block;
-    /* background-color: darkblue; */
-    color: white;
-    margin-top: 50px;
+
   }
 
   .tablet {
     display: none;
   }
 
-  .container {
+  /* .container {
     margin-top: 100px;
-  }
+  } */
 
   .logo {
     width: 175px;
   }
+  body {
+    font-size: 10px; /* Adjust as needed */
+  }
+
+  .centered {
+    font-size: 10px; /* Adjust for readability */
+  }
+
+  .instructions {
+    font-size: 12px;
+  }
+
+  .container, .cert-container, ul, li {
+    font-size: 10px;
+  }
 
   .cert-container {
-    margin-top: 100px;
+
     display: contents;
 
     /* margin-top: 20px; */
@@ -160,6 +173,7 @@ li {
   .logo {
     width: 225px;
   }
+ 
 }
 
 /* Media query for screens larger than 768px (desktop) */

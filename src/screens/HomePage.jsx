@@ -27,10 +27,11 @@ const HomePage = () => {
   const updateCoordinates = () => {
     const image = document.getElementById("responsive-image");
 
-    const originalWidth = 1421;
-    const originalHeight = 1500;
+    const originalWidth = 6572;
+    const originalHeight = 4386;
     const imageWidth = image?.width;
     const imageHeight = image?.height;
+
 
     fetch("data.csv")
       .then((response) => response.text())
@@ -135,7 +136,7 @@ const HomePage = () => {
       <p className="instructions desktop">
         <div>
           <img
-            src="HSI LOGO.png"
+            src="HSLogo.jpg"
             width="300px"
             className="logo"
             alt="HS LOGO"
@@ -147,7 +148,7 @@ const HomePage = () => {
       <p className="instructions tablet">
         <div>
           <img
-            src="HSI LOGO.png"
+            src="HSLogo.jpg"
             width="200px"
             className="logo"
             alt="HS LOGO"
@@ -230,17 +231,17 @@ const HomePage = () => {
                   ></img>
                 </li>
                 <li>
-                  <h2>86 Diamonds</h2>
+                  <h2>83 Diamonds</h2>
                 </li>
                 <li>
-                  <h2>51.63cts</h2>
+                  <h2>65.14 cts</h2>
                 </li>
                 <li>
-                  <h2>I-J</h2>
+                  <h2>DEF</h2>
                 </li>
                 <li>
                   <Link to="/details">
-                    <Button variant="light">Details</Button>
+                    <Button variant="secondary">Details</Button>
                   </Link>
                 </li>
               </ul>
