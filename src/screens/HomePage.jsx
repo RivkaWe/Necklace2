@@ -1,21 +1,17 @@
-import React, {  useEffect} from "react";
-import {useNavigate, useLocation, Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import MagnifiedImage from "./MagnifiedImage.js";
 
-
 const HomePage = () => {
-
   useEffect(() => {
     updateCoordinates();
   }, []);
-
 
   const navigate = useNavigate();
   const location = useLocation();
 
   // Constants for original image dimensions
-  
 
   // const showPopup = (content) => {
   //   const popup = document.getElementById("popup");
@@ -30,7 +26,7 @@ const HomePage = () => {
 
   const updateCoordinates = () => {
     const image = document.getElementById("responsive-image");
-    
+
     const originalWidth = 1421;
     const originalHeight = 1500;
     const imageWidth = image?.width;
@@ -72,17 +68,16 @@ const HomePage = () => {
           // area.addEventListener("mouseover", () => showPopup(content));
           // area.addEventListener("mouseout", hidePopup);
 
-         
           mapElement.appendChild(area);
         }
       })
       .catch((error) => console.error("Error reading CSV data:", error));
   };
 
-let startX
+  let startX;
   useEffect(() => {
     // Initial dimensions of the image
-    
+
     const handleNavigation = () => {
       updateCoordinates();
     };
@@ -133,53 +128,46 @@ let startX
 
   return (
     <div>
+      <p className="instructions mobile">
+        Zoom and tap on any diamond to view the certificate.
+      </p>
 
-         <p className="instructions mobile">
-                
-                Zoom and tap on any diamond to view the certificate.
-              </p>
-
-              <p className="instructions desktop">
-                <div>
-                <img
-                src="HSI LOGO.png"
-                 width="300px"
-                className="logo"
-                alt="HS LOGO"
-              ></img>
-                </div>
-                
-                Click on any diamond to view the certificate.
-              </p>
-
-              <p className="instructions tablet">
-              <div>
-                <img
-                src="HSI LOGO.png"
-                 width="200px"
-                className="logo"
-                alt="HS LOGO"
-              ></img>
-                </div>
-                Click or tap on any diamond to view the certificate.
-              </p>
-              
-      <div className="top-container">
-
-     
-        <div className="image-container">
-
-           
+      <p className="instructions desktop">
+        <div>
           <img
-            src="blackNecklace1.jpg"
+            src="HSI LOGO.png"
+            width="300px"
+            className="logo"
+            alt="HS LOGO"
+          ></img>
+        </div>
+        Click on any diamond to view the certificate.
+      </p>
+
+      <p className="instructions tablet">
+        <div>
+          <img
+            src="HSI LOGO.png"
+            width="200px"
+            className="logo"
+            alt="HS LOGO"
+          ></img>
+        </div>
+        Click or tap on any diamond to view the certificate.
+      </p>
+
+      <div className="top-container">
+        <div className="image-container">
+          <img
+            src="whiteNecklace.jpg"
             alt="Your Image"
             useMap="#image-map"
             className="necklaceImage"
             id="responsive-image"
           />
 
-{/* <MagnifiedImage imageSrc="blackNecklace1.jpg" /> */}
-          
+          {/* <MagnifiedImage imageSrc="blackNecklace1.jpg" /> */}
+
           <map name="image-map" id="image-map">
             {/* Placeholder values are used here */}
             <area
@@ -229,24 +217,19 @@ let startX
           </map>
 
           <div className="centered">
-         
             <div className="container">
-   
-           {/* <div className="popup" id="popup"></div> */}
-           
-              
-       
+              {/* <div className="popup" id="popup"></div> */}
+
               <ul>
-            
                 <li>
-                <img
-                src="FireCushionLogoTransparent.png"
-                // width="200px"
-                className="logo"
-                alt="FireCushion"
-              ></img>
+                  <img
+                    src="FireCushionLogo.jpg"
+                    // width="200px"
+                    className="logo"
+                    alt="FireCushion"
+                  ></img>
                 </li>
-              <li>
+                <li>
                   <h2>86 Diamonds</h2>
                 </li>
                 <li>
@@ -256,18 +239,12 @@ let startX
                   <h2>I-J</h2>
                 </li>
                 <li>
-                <Link to= '/details'>
-              <Button variant='light'>Details</Button>
-              </Link>
+                  <Link to="/details">
+                    <Button variant="light">Details</Button>
+                  </Link>
                 </li>
-
-            
-              
-        
               </ul>
-           
             </div>
-       
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 * {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
 }
 body {
   margin: 0;
@@ -20,9 +20,9 @@ body {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  color:black;
-  position:sticky;
-  position:-webkit-sticky;
+  color: black;
+  position: sticky;
+  position: -webkit-sticky;
 }
 .top-container {
   display: flex;
@@ -105,11 +105,11 @@ ul {
   list-style: none;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
+  background-color: white;
 }
 
 li {
-  background-color: transparent;
+  background-color: white;
 }
 
 @media only screen and (max-width: 480px) {
@@ -142,7 +142,7 @@ li {
     /* margin-top: 20px; */
   }
 }
-.justify-content-center{
+.justify-content-center {
   display: contents;
 }
 
