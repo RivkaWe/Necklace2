@@ -6,9 +6,8 @@ import { useResizeObserver } from "@wojtekmaj/react-hooks";
 import { Button } from "react-bootstrap";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-
 export default function EachDiamond() {
-  const navigate =useNavigate()
+  const navigate = useNavigate();
   const [numPages, setNumPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(1); // start on first page
   const [loading, setLoading] = useState(true);
@@ -17,26 +16,24 @@ export default function EachDiamond() {
   const [containerRef, setContainerRef] = useState(null);
   const { id } = useParams();
 
- function clickHandler(){
-  navigate(-1)
- }
-
- const resizeObserverOptions = {};
-
- const maxWidth = 800;
-
- const onResize = useCallback((entries) => {
-  const [entry] = entries;
-
-  if (entry) {
-    setContainerWidth(entry.contentRect.width);
+  function clickHandler() {
+    navigate(-1);
   }
-}, []);
 
-useResizeObserver(containerRef, resizeObserverOptions, onResize);
-  function onDocumentLoadSuccess({
-    numPages: nextNumPages,
-  }) {
+  const resizeObserverOptions = {};
+
+  const maxWidth = 800;
+
+  const onResize = useCallback((entries) => {
+    const [entry] = entries;
+
+    if (entry) {
+      setContainerWidth(entry.contentRect.width);
+    }
+  }, []);
+
+  useResizeObserver(containerRef, resizeObserverOptions, onResize);
+  function onDocumentLoadSuccess({ numPages: nextNumPages }) {
     setNumPages(nextNumPages);
   }
 
@@ -60,8 +57,8 @@ useResizeObserver(containerRef, resizeObserverOptions, onResize);
     setPageNumber((prevPageNumber) => prevPageNumber - 1);
   }
 
-  function goBackToNecklace (){
-    navigate(-1)
+  function goBackToNecklace() {
+    navigate(-1);
   }
 
   return (
@@ -69,13 +66,13 @@ useResizeObserver(containerRef, resizeObserverOptions, onResize);
       {/* <Nav pageNumber={pageNumber} numPages={numPages} /> */}
 
       <Button
-            onClick={goBackToNecklace}
-            type="button"
-            variant="primary"
-            style={{ textDecoration: "none" }}
-          >
-Go Back
-          </Button>
+        onClick={goBackToNecklace}
+        type="button"
+        variant="primary"
+        style={{ textDecoration: "none" }}
+      >
+        Go Back
+      </Button>
       <div
         hidden={loading}
         style={{ height: "calc(100vh - 64px)" }}
@@ -84,26 +81,21 @@ Go Back
         <div
           className={`flex items-center justify-between w-full absolute z-10 px-2`}
         >
-         {/* <button
+          {/* <button
             onClick={goToPreviousPage}
             disabled={pageNumber <= 1}
             className="relative h-[calc(100vh - 64px)] px-2 py-24 text-gray-400 hover:text-gray-50 focus:z-20"
           >
             <span className="sr-only">Previous</span>
             {/* <ChevronLeftIcon className="h-10 w-10" aria-hidden="true" /> */}
-           {/* </button>  */} 
-
-      
-         
+          {/* </button>  */}
         </div>
-
-       
 
         <div className="h-full flex justify-center mx-auto cert-container">
           <Document
-         //   file={props.file}
+            //   file={props.file}
 
-         file={`https://www.hasenfeld-stein.com/images/certificates/${id}.pdf`}
+            file={`https://www.hasenfeld-stein.com/images/certificates/${id}.pdf`}
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
             // renderMode="canvas"
@@ -129,7 +121,6 @@ Go Back
   );
 }
 
-
 // function Nav({pageNumber, numPages}) {
 //   return (
 //     <nav className="bg-black">
@@ -138,9 +129,7 @@ Go Back
 //           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
 //             <div className="flex flex-shrink-0 items-center">
 //               <p className="text-2xl font-bold tracking-tighter text-white">
-             
-       
-      
+
 //               </p>
 //             </div>
 //           </div>
