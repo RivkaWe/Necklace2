@@ -30,6 +30,7 @@ body {
   align-items: center;
   object-fit: contain;
   margin-top: 20px;
+  background-color: transparent;
 }
 
 .cert-container {
@@ -105,7 +106,7 @@ ul {
   list-style: none;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: transparent;
 }
 
 li {
