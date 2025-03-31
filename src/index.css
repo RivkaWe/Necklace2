@@ -113,7 +113,7 @@ li {
   background-color: transparent;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-device-width: 480px) {
   .desktop {
     display: none;
   }
@@ -131,22 +131,20 @@ li {
   } */
 
   .logo {
-    width: 175px;
+    width: 125px !important;
   }
   body {
     font-size: 10px; /* Adjust as needed */
   }
 
-  .centered {
-    font-size: 10px; /* Adjust for readability */
-  }
+
 
   .instructions {
     font-size: 12px;
   }
 
-  .container, .cert-container, ul, li {
-    font-size: 10px;
+ .image-container, .container, .cert-container, ul, li, h2 {
+    font-size: 12px !important;
   }
 
   .cert-container {
@@ -155,9 +153,16 @@ li {
 
     /* margin-top: 20px; */
   }
-}
-.justify-content-center {
-  display: contents;
+
+  .necklaceImage {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: bottom;
+  }
+  button{
+    font-size: 12px !important;
+  }
 }
 
 @media only screen and (min-device-width: 481px) and (max-device-width: 768px) {
