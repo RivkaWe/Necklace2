@@ -237,7 +237,7 @@ const HomePage = () => {
                   <h2>65.14 cts</h2>
                 </li>
                 <li>
-                  <h2>DEF</h2>
+                  <h2>EFG</h2>
                 </li>
                 <li>
                   <Link to="/details">

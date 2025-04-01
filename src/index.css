@@ -137,7 +137,12 @@ li {
     font-size: 10px; /* Adjust as needed */
   }
 
-
+.top-container{
+  min-height: 100vh !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 
   .instructions {
     font-size: 12px;
